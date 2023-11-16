@@ -9,8 +9,9 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @State private var name : String = ""
+    @Binding var name : String
     
+
     var text: String
     var image: String
     var title: String
@@ -32,16 +33,18 @@ struct OnboardingView: View {
                 .bold()
             
             
-            
             TextField("Enter Name Here", text: $name)
+                .frame(width: 245, height: 62)
                 .padding([.leading, .trailing], 75)
-                .padding([.top, .bottom], 30)
+                .padding([.top, .bottom])
                 .multilineTextAlignment(.center)
+                                    
             Spacer()
         }
         .textFieldStyle(TextBorder())
     }
     
+
 //    init(text: String, image: String, title: String, name : String) {
 //        self.text = text
 //        self.image = image
@@ -70,5 +73,5 @@ struct TextBorder: TextFieldStyle {
 
 
 #Preview {
-    OnboardingView(text: "Welcome To “To The Top” the interactive story about climbing buildings. Let’s start things off by learning the name of the main character of this story.", image: "climbLogo", title: "Who Is The Main Character of this Story?")
+    OnboardingView(name: .constant(""), text: "Welcome To “To The Top” the interactive story about climbing buildings. Let’s start things off by learning the name of the main character of this story.", image: "climbLogo", title: "Who Is The Main Character of this Story?")
 }
