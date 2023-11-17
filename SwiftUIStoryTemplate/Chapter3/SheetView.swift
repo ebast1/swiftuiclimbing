@@ -25,7 +25,7 @@ struct SheetView: View {
                         }
 
                         Section {
-                            Button("Dismiss") {
+                            Button("Attempt") {
                                 if enteredWord == correctWord {
                                     isSheetPresented = false
                                 }
@@ -33,7 +33,7 @@ struct SheetView: View {
                         }
                     }
                     .navigationTitle("OH NO! A TROLL")
-                    .interactiveDismissDisabled()
+                    
                 }
             }
     }
